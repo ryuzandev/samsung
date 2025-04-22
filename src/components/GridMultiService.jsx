@@ -67,19 +67,11 @@ function GridMultiService() {
             onMouseEnter={handleMouseEnterVideo1}
             onMouseLeave={handleMouseLeaveVideo1}
           >
-            {/* <iframe
-              width="100%"
-              height="100%"
-              src={`https://www.youtube.com/embed/IyCqW-g53fc?autoplay=${
-                isPlayingVideo1 ? "1" : "0"
-              }`}
-              title="YouTube video 1"
-              frameBorder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe> */}
+           
 
-            <iframe width="1307" height="735" src="https://www.youtube.com/embed/njX2bu-_Vw4" title="2020 LG OLED l  The Black 4K HDR 60fps" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            {/* <iframe width="1307" height="735" src="https://www.youtube.com/embed/njX2bu-_Vw4" title="2020 LG OLED l  The Black 4K HDR 60fps" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> */}
+
+            <iframe width="1307" height="735" src="https://www.youtube.com/embed/l_56hZVOGnI" title="Samsung UHD TV" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             {isPlayingVideo1 && <div className="overlay"></div>}{" "}
             {/* Show overlay when video is playing */}
           </div>
@@ -167,18 +159,11 @@ function GridMultiService() {
             onMouseEnter={handleMouseEnterVideo2}
             onMouseLeave={handleMouseLeaveVideo2}
           >
-            {/* <iframe
-              width="100%"
-              height="100%"
-              src={`https://www.youtube.com/embed/l07RGT3ucFs?autoplay=${
-                isPlayingVideo2 ? "1" : "0"
-              }`}
-              title="YouTube video 2"
-              frameBorder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe> */}
-            <iframe width="1307" height="735" src="https://www.youtube.com/embed/Tcm1QAodEDE" title="New LG Washing Machine With AI Direct Drive™ | LG" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+         
+            {/* <iframe width="1307" height="735" src="https://www.youtube.com/embed/Tcm1QAodEDE" title="New LG Washing Machine With AI Direct Drive™ | LG" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> */}
+
+            <iframe width="1307" height="735" src="https://www.youtube.com/embed/eUndqFAw8ik" title="Samsung AI Ecobubble™ Washing Machine: Simple. Gentle. Intelligent Wash." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
             {isPlayingVideo2 && <div className="overlay"></div>}{" "}
             {/* Show overlay when video is playing */}
           </div>
@@ -195,18 +180,12 @@ function GridMultiService() {
             onMouseEnter={handleMouseEnterVideo1}
             onMouseLeave={handleMouseLeaveVideo1}
           >
-            {/* <iframe
-              width="100%"
-              height="100%"
-              src={`https://www.youtube.com/embed/IyCqW-g53fc?autoplay=${
-                isPlayingVideo1 ? "1" : "0"
-              }`}
-              title="YouTube video 1"
-              frameBorder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe> */}
-            <iframe width="1307" height="735" src="https://www.youtube.com/embed/eFW6iqF1siE" title="Embrace Ease-Of-Cooking With Scan To Cook | LG Microwave Oven | ThinQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          
+            {/* <iframe width="1307" height="735" src="https://www.youtube.com/embed/eFW6iqF1siE" title="Embrace Ease-Of-Cooking With Scan To Cook | LG Microwave Oven | ThinQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> */}
+
+            <iframe width="1307" height="735" src="https://www.youtube.com/embed/8ln4NgG0__M" title="Bespoke Side By Side Refrigerators | Designed for you, by you | Samsung" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
             {isPlayingVideo1 && <div className="overlay"></div>}{" "}
             {/* Show overlay when video is playing */}
           </div>

@@ -1,6 +1,6 @@
 {
-  "homepage": "https://ryuzandev.github.io/lg",
-  "name": "lg",
+  "homepage": "https://ryuzandev.github.io/samsung",
+  "name": "samsung",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -26,6 +26,7 @@
     "react-scripts": "5.0.1",
     "redux": "^5.0.1",
     "redux-thunk": "^3.1.0",
+    "samsung": "file:",
     "web-vitals": "^4.2.4"
   },
   "scripts": {

@@ -124,7 +124,7 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../componentsCss/NavbarCss.css";
-import lgLogo from "../componentsSrcAssets/lglogo.png";
+import samsung from "../componentsSrcAssets/samsung.png";
 
 function Navbar() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -180,13 +180,13 @@ function Navbar() {
         </NavbarComponent.Brand> */}
         <NavbarComponent.Brand
           as={Link}
-          to="/lg"
+          to="/samsung"
           className="d-flex align-items-center"
         >
           <img
-            src={lgLogo}
+            src={samsung}
             alt="Hypersonic Logo"
-            style={{ height: "50px", width: "auto" }} // adjust size if needed
+            style={{ height: "100px", width: "auto" }} // adjust size if needed
           />
         </NavbarComponent.Brand>
 
