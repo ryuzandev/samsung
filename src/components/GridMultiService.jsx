@@ -220,7 +220,7 @@ function GridMultiService() {
                 Our technicians are skilled in repairing air conditioners of all
                 makes and models for better cooling performance.
               </p>
-              <Link to="/Refridgerater">
+              <Link to="/Refrigerator">
                 <button className="service-button">Find More</button>
               </Link>
             </div>
