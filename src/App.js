@@ -92,7 +92,7 @@ function App() {
         <Routes>
           {/* Home Page - These components will be visible on the homepage */}
           <Route
-            path="samsung/"
+            path="samsungsample/"
             element={
               <>
                 <NavbarCommon />

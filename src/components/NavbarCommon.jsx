@@ -67,7 +67,7 @@ function NavbarCommon() {
         </NavbarComponent.Brand> */}
         <NavbarComponent.Brand
           as={Link}
-          to="/samsung"
+          to="/samsungsample"
           className="d-flex align-items-center"
         >
           <img

@@ -1,6 +1,6 @@
 {
-  "homepage": "https://ryuzandev.github.io/samsung",
-  "name": "samsung",
+  "homepage": "https://ryuzandev.github.io/samsungsample",
+  "name": "samsungsample",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

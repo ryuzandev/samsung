@@ -1,6 +1,7 @@
-import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { BsChatDotsFill } from "react-icons/bs";
+import axios from "axios";
 import "../../componentsCss/Chatbot.css";
 
 const Chatbot = () => {
@@ -11,15 +12,48 @@ const Chatbot = () => {
 
   const handleToggle = () => setOpen(!open);
 
-  const handleSend = () => {
+  const fetchAnswerFromGoogle = async (query) => {
+    try {
+      const response = await axios.get(
+        `https://cors-anywhere.herokuapp.com/https://serpapi.com/search.json`,
+        {
+          params: {
+            q: query,
+            api_key:
+              "c5f7a6d6111687e786a2ebb7fe9d239fb42efe9592598117898685fb022ef189", // Your API key
+          },
+        }
+      );
+
+      const data = response.data;
+      const answer =
+        data?.answer_box?.answer ||
+        data?.answer_box?.snippet ||
+        data?.answer_box?.definition ||
+        data?.organic_results?.[0]?.snippet;
+      console.log(data);
+
+      return (
+        answer ||
+        "I couldn't find a direct answer, but you can view the full results on Google."
+      );
+    } catch (error) {
+      console.error("SerpAPI fetch error:", error.message);
+      return "Here is your detailed explanation about issue.Try the below link !!😁👌";
+    }
+  };
+
+  const handleSend = async () => {
     if (!input.trim()) return;
 
-    const userMsg = input.toLowerCase();
-    setMessages((prev) => [...prev, { from: "user", text: input }]);
+    const userMsg = input.trim();
+    const lowerInput = userMsg.toLowerCase();
+
+    setMessages((prev) => [...prev, { from: "user", text: userMsg }]);
     setInput("");
 
-    // Matching keywords
-    if (userMsg.includes("tv") || userMsg.includes("television")) {
+    // Direct keyword routing
+    if (lowerInput.includes("tv") || lowerInput.includes("television")) {
       setMessages((prev) => [
         ...prev,
         {
@@ -28,7 +62,10 @@ const Chatbot = () => {
           route: "/tv",
         },
       ]);
-    } else if (userMsg.includes("ac") || userMsg.includes("air conditioner")) {
+      return;
+    }
+
+    if (lowerInput.includes("ac") || lowerInput.includes("air conditioner")) {
       setMessages((prev) => [
         ...prev,
         {
@@ -37,7 +74,10 @@ const Chatbot = () => {
           route: "/aircondition",
         },
       ]);
-    } else if (userMsg.includes("microwave")) {
+      return;
+    }
+
+    if (lowerInput.includes("microwave")) {
       setMessages((prev) => [
         ...prev,
         {
@@ -46,10 +86,10 @@ const Chatbot = () => {
           route: "/microwave",
         },
       ]);
-    } else if (
-      userMsg.includes("washing") ||
-      userMsg.includes("washing machine")
-    ) {
+      return;
+    }
+
+    if (lowerInput.includes("washing")) {
       setMessages((prev) => [
         ...prev,
         {
@@ -58,7 +98,10 @@ const Chatbot = () => {
           route: "/washing",
         },
       ]);
-    } else if (userMsg.includes("refrigerator")) {
+      return;
+    }
+
+    if (lowerInput.includes("refrigerator")) {
       setMessages((prev) => [
         ...prev,
         {
@@ -67,39 +110,67 @@ const Chatbot = () => {
           route: "/Refrigerator",
         },
       ]);
-    } else if (userMsg.includes("dish washer")) {
+      return;
+    }
+
+    if (lowerInput.includes("dish washer")) {
       setMessages((prev) => [
         ...prev,
         {
           from: "bot",
-          text: "Please visit the dish washer page.",
+          text: "Please visit the Dish Washer page.",
           route: "/DishWasher",
         },
       ]);
-    } else if (userMsg.includes("yes")) {
-      const lastBotMsg = messages.filter((m) => m.from === "bot").slice(-1)[0];
+      return;
+    }
+
+    // "Yes" response handler
+    if (lowerInput === "yes") {
+      const lastBotMsg = messages
+        .slice()
+        .reverse()
+        .find((msg) => msg.from === "bot" && msg.route);
       if (lastBotMsg?.route) {
         navigate(lastBotMsg.route);
+        return;
       }
-    } else {
-      setMessages((prev) => [
-        ...prev,
-        {
-          from: "bot",
-          text: 'Sorry, I didn\'t get that. Try typing "television", "microwave", "AC", etc.',
-        },
-      ]);
     }
+
+    // Fallback: Google Search
+    setMessages((prev) => [
+      ...prev,
+      { from: "bot", text: "Let me search that for you..." },
+    ]);
+
+    const answer = await fetchAnswerFromGoogle(userMsg);
+
+    setMessages((prev) => [
+      ...prev.slice(0, -1), // remove temporary "Let me search..." message
+      { from: "bot", text: answer },
+      {
+        from: "bot",
+        text: "View more on Google",
+        route: `https://www.google.com/search?q=${encodeURIComponent(userMsg)}`,
+      },
+    ]);
   };
 
   const handleLinkClick = (route) => {
-    navigate(route);
+    if (route.startsWith("http")) {
+      window.open(route, "_blank");
+    } else {
+      navigate(route);
+    }
   };
 
   return (
     <div className="chatbot-container">
       <div className="chatbot-icon" onClick={handleToggle}>
-        <span><b>AI BOT  </b></span><BsChatDotsFill size={35} />
+        <span>
+          <b>AI BOT</b>
+        </span>
+        <BsChatDotsFill size={35} />
       </div>
 
       {open && (
